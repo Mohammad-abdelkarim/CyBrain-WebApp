@@ -440,6 +440,132 @@
     background: rgba(0,240,255,.08);
   }
 
+  /* ─── REWARDS PROGRAM ─── */
+#rewards {
+  background: linear-gradient(180deg, transparent 0%, rgba(0,240,255,.045) 50%, transparent 100%);
+}
+
+.rewards-box {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1.4fr .8fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.rewards-content,
+.rewards-card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(13,1,52,.75), rgba(0,102,255,.08));
+  backdrop-filter: blur(14px);
+  padding: 2.6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.rewards-content::before,
+.rewards-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(0,240,255,.13), transparent 35%);
+  pointer-events: none;
+}
+
+.rewards-badge {
+  display: inline-block;
+  padding: 7px 16px;
+  border: 1px solid rgba(0,240,255,.35);
+  border-radius: 999px;
+  color: var(--cyan);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+  background: rgba(0,240,255,.06);
+}
+
+.rewards-content h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.rewards-content p,
+.rewards-card p {
+  color: rgba(255,255,255,.55);
+  line-height: 1.75;
+  font-size: .92rem;
+}
+
+.rewards-points {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.reward-point {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid rgba(0,240,255,.14);
+  border-radius: 12px;
+  background: rgba(0,102,255,.07);
+}
+
+.reward-point strong {
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--cyan);
+  font-size: 1.1rem;
+}
+
+.reward-point span {
+  color: rgba(255,255,255,.68);
+  line-height: 1.55;
+  font-size: .9rem;
+}
+
+.rewards-card h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.commission-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: .9rem;
+  border: 1px solid rgba(0,240,255,.15);
+  border-radius: 12px;
+  background: rgba(0,240,255,.055);
+}
+
+.commission-line span {
+  color: rgba(255,255,255,.65);
+  font-size: .9rem;
+}
+
+.commission-line strong {
+  color: var(--cyan);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.3rem;
+}
+
+.rewards-card p {
+  margin-top: 1.4rem;
+}
+
+@media(max-width:900px){
+  .rewards-box {
+    grid-template-columns: 1fr;
+  }
+}
+
   /* ─── CTA BANNER ─── */
   #cta-banner {
     padding: 100px 6vw;
@@ -1057,6 +1183,7 @@
     <li><a href="#why">About</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#industries">Industries</a></li>
+    <li><a href="#rewards">Rewards</a></li>
     <li><a href="#cta-banner" class="nav-cta">Contact Us</a></li>
   </ul>
 </nav>
@@ -1262,6 +1389,64 @@
   </div>
 </section>
 
+<!-- REWARDS PROGRAM -->
+<section id="rewards">
+  <div class="section-eyebrow">Partner With CyBrain</div>
+  <h2 class="section-title">Rewards <span class="accent">Program</span></h2>
+  <p class="section-sub">
+    Bring a qualified project to CyBrain and earn a direct commission once the client signs the contract.
+  </p>
+
+  <div class="rewards-box reveal">
+    <div class="rewards-content">
+      <span class="rewards-badge">2% - 5% Commission</span>
+      <h3>Earn by Connecting Us With Real Opportunities</h3>
+      <p>
+        The CyBrain Rewards Program is built for professionals, marketers, consultants, freelancers, and anyone with access to business opportunities. 
+        When you introduce a client who signs a project contract with CyBrain, you receive a reward based on the project size and value.
+      </p>
+
+      <div class="rewards-points">
+        <div class="reward-point">
+          <strong>01</strong>
+          <span>Refer a potential client or project opportunity.</span>
+        </div>
+        <div class="reward-point">
+          <strong>02</strong>
+          <span>CyBrain handles the meeting, proposal, and technical scope.</span>
+        </div>
+        <div class="reward-point">
+          <strong>03</strong>
+          <span>You earn 2% to 5% once the contract is signed with the client.</span>
+        </div>
+      </div>
+
+      <a href="https://wa.me/96178845376?text=Hello%20CyBrain%2C%20I%20want%20to%20join%20the%20Rewards%20Program." target="_blank" class="btn-primary">
+        Join the Program
+      </a>
+    </div>
+
+    <div class="rewards-card">
+      <h4>Commission Range</h4>
+      <div class="commission-line">
+        <span>Small Projects</span>
+        <strong>2%</strong>
+      </div>
+      <div class="commission-line">
+        <span>Medium Projects</span>
+        <strong>3% - 4%</strong>
+      </div>
+      <div class="commission-line">
+        <span>Large Projects</span>
+        <strong>5%</strong>
+      </div>
+      <p>
+        Reward percentage depends on the project size, contract value, and quality of the opportunity.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="cta-banner">
   <div class="cta-box reveal">
@@ -1322,7 +1507,7 @@
   <h5>Company</h5>
   <ul>
     <li><a href="#why">About Us</a></li>
-    <li><a href="#">Case Studies</a></li>
+    <li><a href="#rewards">Rewards Program</a></li>
     <li><a href="#">Careers</a></li>
     <li><a href="#">Blog</a></li>
     <li><a href="#">Partners</a></li>

@@ -332,12 +332,23 @@
 .project-card {
   position: relative;
   overflow: hidden;
+  display: block;
+  text-decoration: none;
+  color: inherit;
   padding: 2rem;
   border: 1px solid var(--border);
   border-radius: 18px;
   background: linear-gradient(135deg, rgba(13,1,52,.78), rgba(0,102,255,.08));
   backdrop-filter: blur(14px);
   transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  cursor: pointer;
+}
+
+.project-card:visited,
+.project-card:hover,
+.project-card:active {
+  color: inherit;
+  text-decoration: none;
 }
 
 .project-card::before {
@@ -369,6 +380,11 @@
 
 .project-card:hover::after {
   left: 130%;
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
 }
 
 .project-top {
@@ -1407,39 +1423,40 @@
   </p>
 
   <div class="projects-grid reveal">
-    <div class="project-card">
+
+    <a href="https://gosportz.com" target="_blank" rel="noopener noreferrer" class="project-card">
       <div class="project-top">
         <span class="project-type">Software Platform</span>
         <span class="project-year">2026</span>
       </div>
       <h3>GoSportz</h3>
       <p>
-        A custom internal platform designed to help companies manage operations, users, workflows, and business data from one secure dashboard.
+        A custom sports technology platform designed to connect players, coaches, clubs, and parents through a smooth digital experience.
       </p>
       <div class="project-tags">
         <span>Web App</span>
-        <span>Dashboard</span>
-        <span>Automation</span>
+        <span>Mobile App</span>
+        <span>Admin Panel</span>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card">
+    <a href="https://settrr.ai" target="_blank" rel="noopener noreferrer" class="project-card">
       <div class="project-top">
         <span class="project-type">AI Software Platform</span>
         <span class="project-year">2025</span>
       </div>
       <h3>SETTRR</h3>
       <p>
-        A structured cybersecurity assessment project covering vulnerability discovery, reporting, risk prioritization, and security recommendations.
+        An AI-powered software platform built to support smarter workflows, automation, and intelligent digital operations for businesses.
       </p>
       <div class="project-tags">
-        <span>Pen Testing</span>
-        <span>Reporting</span>
-        <span>Risk Analysis</span>
+        <span>AI</span>
+        <span>SaaS</span>
+        <span>Automation</span>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card">
+    <a href="https://cybrain.me" target="_blank" rel="noopener noreferrer" class="project-card">
       <div class="project-top">
         <span class="project-type">AI Solution</span>
         <span class="project-year">2026</span>
@@ -1453,9 +1470,9 @@
         <span>Automation</span>
         <span>LLM</span>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card">
+    <a href="https://cybrain.me" target="_blank" rel="noopener noreferrer" class="project-card">
       <div class="project-top">
         <span class="project-type">Web Development</span>
         <span class="project-year">2026</span>
@@ -1469,7 +1486,8 @@
         <span>CSS</span>
         <span>Responsive</span>
       </div>
-    </div>
+    </a>
+
   </div>
 </section>
 

@@ -317,6 +317,111 @@
     color: var(--cyan);
   }
 
+  /* ─── PROJECTS ─── */
+#projects {
+  background: linear-gradient(180deg, transparent 0%, rgba(0,102,255,.045) 50%, transparent 100%);
+}
+
+.projects-grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(13,1,52,.78), rgba(0,102,255,.08));
+  backdrop-filter: blur(14px);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(0,240,255,.16), transparent 36%);
+  opacity: .75;
+  pointer-events: none;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+  transform: skewX(-18deg);
+  transition: left .7s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0,240,255,.45);
+  box-shadow: 0 18px 50px rgba(0,102,255,.18);
+}
+
+.project-card:hover::after {
+  left: 130%;
+}
+
+.project-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+.project-type,
+.project-year {
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.project-card h3 {
+  position: relative;
+  z-index: 1;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.45rem;
+  margin-bottom: .8rem;
+}
+
+.project-card p {
+  position: relative;
+  z-index: 1;
+  color: rgba(255,255,255,.55);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.project-tags {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1.5rem;
+}
+
+.project-tags span {
+  padding: 5px 10px;
+  border: 1px solid rgba(0,240,255,.22);
+  border-radius: 999px;
+  color: rgba(255,255,255,.68);
+  font-size: .72rem;
+  background: rgba(0,240,255,.055);
+}
+
   /* ─── WHY US ─── */
   #why {
     background: linear-gradient(180deg, transparent 0%, rgba(0,102,255,.06) 50%, transparent 100%);
@@ -1180,9 +1285,9 @@
   </button>
   <ul class="nav-links" id="nav-menu">
     <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#why">About</a></li>
     <li><a href="#process">Process</a></li>
-    <li><a href="#industries">Industries</a></li>
     <li><a href="#rewards">Rewards</a></li>
     <li><a href="#cta-banner" class="nav-cta">Contact Us</a></li>
   </ul>
@@ -1289,6 +1394,81 @@
       <h3>Data & Analytics</h3>
       <p>End-to-end data pipelines, real-time dashboards, and business intelligence platforms that surface insights at the speed of decision-making.</p>
       <span class="tag">ETL · BI · DataOps</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-eyebrow">Our Work</div>
+  <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+  <p class="section-sub">
+    A glimpse into the platforms, systems, and digital solutions we build for businesses.
+  </p>
+
+  <div class="projects-grid reveal">
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-type">Software Platform</span>
+        <span class="project-year">2026</span>
+      </div>
+      <h3>GoSportz</h3>
+      <p>
+        A custom internal platform designed to help companies manage operations, users, workflows, and business data from one secure dashboard.
+      </p>
+      <div class="project-tags">
+        <span>Web App</span>
+        <span>Dashboard</span>
+        <span>Automation</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-type">AI Software Platform</span>
+        <span class="project-year">2025</span>
+      </div>
+      <h3>SETTRR</h3>
+      <p>
+        A structured cybersecurity assessment project covering vulnerability discovery, reporting, risk prioritization, and security recommendations.
+      </p>
+      <div class="project-tags">
+        <span>Pen Testing</span>
+        <span>Reporting</span>
+        <span>Risk Analysis</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-type">AI Solution</span>
+        <span class="project-year">2026</span>
+      </div>
+      <h3>AI-Powered Assistant</h3>
+      <p>
+        An intelligent assistant concept built to support users with automation, smart recommendations, and faster access to business knowledge.
+      </p>
+      <div class="project-tags">
+        <span>AI</span>
+        <span>Automation</span>
+        <span>LLM</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-type">Web Development</span>
+        <span class="project-year">2026</span>
+      </div>
+      <h3>Corporate Website</h3>
+      <p>
+        A modern animated business website built with a strong brand identity, responsive design, clear service pages, and conversion-focused sections.
+      </p>
+      <div class="project-tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>Responsive</span>
+      </div>
     </div>
   </div>
 </section>

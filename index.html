@@ -462,13 +462,23 @@
   .why-circle:nth-child(2){ inset:12%;border-color:rgba(0,102,255,.25); animation: spin 20s linear infinite reverse; }
   .why-circle:nth-child(3){ inset:24%;border-color:rgba(0,240,255,.2); animation: spin 14s linear infinite; }
   .why-core {
-    position: absolute; inset:36%;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--blue), var(--cyan));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2rem;
-    box-shadow: 0 0 60px rgba(0,102,255,.5), 0 0 120px rgba(0,240,255,.2);
-  }
+  position: absolute;
+  inset: 36%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 60px rgba(0,102,255,.5), 0 0 120px rgba(0,240,255,.2);
+  overflow: hidden;
+}
+
+.why-core img {
+  width: 58%;
+  height: 58%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,.45));
+}
   .why-dot {
     position: absolute; width: 10px; height: 10px;
     border-radius: 50%; background: var(--cyan);
@@ -1486,7 +1496,9 @@
       <div class="why-circle"></div>
       <div class="why-circle"></div>
       <div class="why-circle"></div>
-      <div class="why-core">🧠</div>
+      <div class="why-core">
+        <img src="assets/coreicon.png" alt="CyBrain icon">
+      </div>
       <div class="why-dot" style="top:5%;left:48%;"></div>
       <div class="why-dot" style="top:48%;left:95%;"></div>
       <div class="why-dot" style="top:92%;left:55%;"></div>

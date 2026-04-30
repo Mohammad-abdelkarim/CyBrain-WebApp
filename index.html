@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CyBrain — Where Cyber Meets Intelligence</title>
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<!-- TrustBox script -->
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+<!-- End TrustBox script -->
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -437,6 +440,77 @@
   color: rgba(255,255,255,.68);
   font-size: .72rem;
   background: rgba(0,240,255,.055);
+}
+
+/* ─── TRUSTPILOT REVIEW COLLECTOR ─── */
+#reviews {
+  background: linear-gradient(180deg, transparent 0%, rgba(0,240,255,.04) 50%, transparent 100%);
+}
+
+.trustpilot-box {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(13,1,52,.78), rgba(0,102,255,.08));
+  backdrop-filter: blur(14px);
+  position: relative;
+  overflow: hidden;
+}
+
+.trustpilot-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(0,240,255,.15), transparent 35%);
+  pointer-events: none;
+}
+
+.trustpilot-content,
+.trustpilot-widget-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.trustpilot-content h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: .8rem;
+}
+
+.trustpilot-content p {
+  color: rgba(255,255,255,.55);
+  line-height: 1.75;
+  font-size: .92rem;
+}
+
+.trustpilot-widget-wrap {
+  min-height: 120px;
+  padding: 2rem;
+  border: 1px solid rgba(0,240,255,.18);
+  border-radius: 16px;
+  background: rgba(255,255,255,.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trustpilot-widget {
+  width: 100%;
+}
+
+@media(max-width:900px){
+  .trustpilot-box {
+    grid-template-columns: 1fr;
+  }
+
+  .trustpilot-widget-wrap {
+    justify-content: center;
+  }
 }
 
   /* ─── WHY US ─── */
@@ -1639,6 +1713,41 @@
       <p>
         Reward percentage depends on the project size, contract value, and quality of the opportunity.
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTPILOT REVIEW COLLECTOR -->
+<section id="reviews">
+  <div class="section-eyebrow">Client Feedback</div>
+  <h2 class="section-title">Review Us on <span class="accent">Trustpilot</span></h2>
+  <p class="section-sub">
+    Worked with CyBrain? Share your experience and help future clients understand the value we deliver.
+  </p>
+
+  <div class="trustpilot-box reveal">
+    <div class="trustpilot-content">
+      <h3>Your Feedback Builds Trust</h3>
+      <p>
+        We value every client relationship. If you worked with CyBrain on software development, AI solutions, cybersecurity, or consulting, we would appreciate your honest review.
+      </p>
+    </div>
+
+    <div class="trustpilot-widget-wrap">
+      <!-- TrustBox widget - Review Collector -->
+      <div 
+        class="trustpilot-widget" 
+        data-locale="en-US" 
+        data-template-id="56278e9abfbbba0bdcd568bc" 
+        data-businessunit-id="69f0c8485bee65af4dc5760f" 
+        data-style-height="52px" 
+        data-style-width="100%" 
+        data-token="24719653-9193-4489-8834-91235aa3ba25">
+        <a href="https://www.trustpilot.com/review/cybrain.me" target="_blank" rel="noopener">
+          Trustpilot
+        </a>
+      </div>
+      <!-- End TrustBox widget -->
     </div>
   </div>
 </section>

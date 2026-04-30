@@ -847,52 +847,128 @@
   .cta-box p { color: rgba(255,255,255,.55); margin-bottom: 2.2rem; line-height: 1.7; }
 
   /* ─── FOOTER ─── */
-  footer {
-    position: relative; z-index: 1;
-    border-top: 1px solid var(--border);
-    padding: 60px 6vw 36px;
-  }
-  .footer-logo-img {
-  height: 120px;
+footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border);
+  padding: 60px 6vw 36px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Footer Brand / Logo */
+.footer-brand {
+  text-align: left;
+}
+
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: -55px;
+  margin-bottom: -10px;
+}
+
+.footer-logo-img {
+  height: 170px;
   width: auto;
-  max-width: 240px;
+  max-width: 470px;
   object-fit: contain;
   display: block;
+  margin-left: -40px;
+  filter: drop-shadow(0 0 18px rgba(0,240,255,.28));
 }
+
+.footer-brand p {
+  margin-top: 0;
+  font-size: .88rem;
+  color: rgba(255,255,255,.45);
+  line-height: 1.75;
+  max-width: 300px;
+}
+
+/* Footer Columns */
+.footer-col h5 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1.2rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.footer-col a {
+  font-size: .88rem;
+  color: rgba(255,255,255,.45);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.footer-col a:hover {
+  color: var(--white);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.8rem;
+  font-size: .8rem;
+  color: rgba(255,255,255,.3);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-tagline {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: .78rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(0,240,255,.5);
+}
+
+/* Responsive Footer */
+@media(max-width: 900px) {
   .footer-top {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
-    gap: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid var(--border);
+    grid-template-columns: 1fr 1fr;
   }
+
+  .footer-logo-img {
+    height: 105px;
+    max-width: 320px;
+    margin-left: -10px;
+  }
+}
+
+@media(max-width: 540px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-logo-img {
+    height: 95px;
+    max-width: 290px;
+    margin-left: -8px;
+  }
+
   .footer-brand p {
-    margin-top: 1rem;
-    font-size: .88rem; color: rgba(255,255,255,.45);
-    line-height: 1.75; max-width: 260px;
+    margin-top: -8px;
   }
-  .footer-col h5 {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: .8rem; letter-spacing: .18em; text-transform: uppercase;
-    color: var(--cyan); margin-bottom: 1.2rem;
-  }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
-  .footer-col a {
-    font-size: .88rem; color: rgba(255,255,255,.45);
-    text-decoration: none; transition: color .2s;
-  }
-  .footer-col a:hover { color: var(--white); }
-  .footer-bottom {
-    display: flex; align-items: center; justify-content: space-between;
-    padding-top: 1.8rem;
-    font-size: .8rem; color: rgba(255,255,255,.3);
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .footer-tagline {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: .78rem; letter-spacing: .2em; text-transform: uppercase;
-    color: rgba(0,240,255,.5);
-  }
+}
 
   /* ─── SCROLL REVEAL ─── */
   .reveal {
@@ -1811,30 +1887,13 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <div style="display:flex;align-items:center;gap:14px;">
-        
-        <!-- Main PNG Logo -->
+      <div class="footer-logo-wrap">
         <img 
           src="assets/cybrain-logo.png" 
           alt="CyBrain logo" 
-          style="height:100px;width:auto;max-width:260px;object-fit:contain;display:block;filter:drop-shadow(0 0 50px rgba(0,240,255,.28));"
-          onload="this.nextElementSibling.style.display='none'"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+          class="footer-logo-img"
+          onerror="this.style.display='none'"
         >
-
-        <!-- Backup SVG Logo if PNG does not load -->
-        <svg width="64" height="64" viewBox="0 0 60 60" fill="none" style="display:none;">
-          <path d="M46 30a16 16 0 1 1-12.5-15.6" stroke="url(#fg1)" stroke-width="2.5" stroke-linecap="round"/>
-          <rect x="26" y="26" width="8" height="8" rx="1.5" fill="url(#fg1)" transform="rotate(45 30 30)"/>
-          <path d="M16 44 L10 50" stroke="url(#fg1)" stroke-width="2.5" stroke-linecap="round"/>
-          <defs>
-            <linearGradient id="fg1" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#0066ff"/>
-              <stop offset="1" stop-color="#00f0ff"/>
-            </linearGradient>
-          </defs>
-        </svg>
-
       </div>
 
       <p>Where Cyber Meets Intelligence. Your trusted partner for software, AI, and cybersecurity excellence.</p>

@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://cybrain.me/</loc>
-        <lastmod>2026-04-30</lastmod>
-        <priority>1.00</priority>
-    </url>
+  <url>
+    <loc>https://cybrain.me/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://cybrain.me/privacy-policy.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://cybrain.me/terms-conditions.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <priority>0.60</priority>
+  </url>
 </urlset>

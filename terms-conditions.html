@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Terms & Conditions | CyBrain</title>
+  <meta name="description" content="Read CyBrain's Terms and Conditions for using the website and engaging with our services.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cybrain.me/terms-conditions.html">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0d0134;
+      --blue: #0066ff;
+      --cyan: #00f0ff;
+      --white: #ffffff;
+      --grey: #a0aec0;
+      --border: rgba(0,240,255,0.18);
+      --card-bg: rgba(13,1,52,0.72);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Exo 2', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.75;
+    }
+
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        linear-gradient(rgba(0,102,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,102,255,.045) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .radial-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(0,102,255,.24), transparent 45%),
+        radial-gradient(circle at 90% 20%, rgba(0,240,255,.08), transparent 30%);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 86px;
+      padding: 0 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(13,1,52,.84);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 58px;
+      width: auto;
+      max-width: 240px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 14px rgba(0,240,255,.2));
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,.72);
+      text-decoration: none;
+      font-size: .9rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: color .2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--cyan);
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      padding: 150px 6vw 80px;
+    }
+
+    .page-header {
+      max-width: 920px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cyan);
+      font-size: .78rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: '';
+      width: 26px;
+      height: 1px;
+      background: var(--cyan);
+      opacity: .8;
+    }
+
+    h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .accent {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-header p {
+      color: rgba(255,255,255,.58);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .content-card {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 3rem;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(0,240,255,.08), transparent 35%),
+        linear-gradient(135deg, rgba(13,1,52,.84), rgba(0,102,255,.07));
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 80px rgba(0,0,0,.22);
+    }
+
+    .last-updated {
+      padding: .8rem 1rem;
+      border: 1px solid rgba(0,240,255,.18);
+      border-radius: 12px;
+      background: rgba(0,240,255,.055);
+      color: rgba(255,255,255,.68);
+      margin-bottom: 2rem;
+      font-size: .9rem;
+    }
+
+    h2 {
+      font-family: 'Rajdhani', sans-serif;
+      color: var(--white);
+      font-size: 1.65rem;
+      margin: 2rem 0 .7rem;
+    }
+
+    p, li {
+      color: rgba(255,255,255,.62);
+      font-size: .96rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-top: .6rem;
+    }
+
+    li {
+      margin-bottom: .45rem;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2.4rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 28px;
+      border-radius: 6px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: var(--navy);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.26);
+      color: var(--white);
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 30px 6vw;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: rgba(255,255,255,.35);
+      font-size: .85rem;
+    }
+
+    @media(max-width: 540px) {
+      nav {
+        height: 78px;
+      }
+
+      .nav-logo img {
+        height: 50px;
+      }
+
+      main {
+        padding: 125px 5vw 60px;
+      }
+
+      .content-card {
+        padding: 2rem 1.2rem;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-bg"></div>
+  <div class="radial-glow"></div>
+
+  <nav>
+    <a class="nav-logo" href="/">
+      <img src="assets/cybrain-logo.png" alt="CyBrain logo">
+    </a>
+    <a class="nav-link" href="/">Back Home</a>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <div class="eyebrow">Legal</div>
+      <h1>Terms &amp; <span class="accent">Conditions</span></h1>
+      <p>
+        These Terms & Conditions explain the rules for using the CyBrain website and engaging with our services.
+      </p>
+    </header>
+
+    <article class="content-card">
+      <div class="last-updated">
+        Last updated: April 30, 2026
+      </div>
+
+      <h2>1. Introduction</h2>
+      <p>
+        These Terms & Conditions (“Terms”) govern your access to and use of the website operated by CyBrain LLC (“CyBrain,” “we,” “our,” or “us”).
+      </p>
+      <p>
+        By accessing this website, contacting us, booking a consultation, requesting a proposal, or using our services, you agree to these Terms. If you do not agree, please do not use our website or services.
+      </p>
+
+      <h2>2. About CyBrain</h2>
+      <p>
+        CyBrain LLC is a US-registered technology company based in Wyoming, United States. We provide services including software development, AI solutions, cybersecurity consulting, cloud infrastructure, data analytics, and related technology services.
+      </p>
+
+      <h2>3. Website Use</h2>
+      <p>You agree to use this website only for lawful and appropriate purposes. You must not:</p>
+      <ul>
+        <li>Use the website in a way that may damage, disable, overload, or interfere with our systems.</li>
+        <li>Attempt unauthorized access to any part of the website, server, code, or connected systems.</li>
+        <li>Copy, reuse, or misrepresent CyBrain content, branding, or materials without permission.</li>
+        <li>Submit false, misleading, harmful, or unlawful information through forms or communication channels.</li>
+      </ul>
+
+      <h2>4. Services and Proposals</h2>
+      <p>
+        Information on this website is provided for general informational and marketing purposes. It does not create a binding service agreement, guarantee, or professional relationship by itself.
+      </p>
+      <p>
+        Any project, consultation, cybersecurity engagement, software development work, AI solution, or technical service will be subject to a separate written proposal, scope of work, contract, or agreement between CyBrain and the client.
+      </p>
+
+      <h2>5. Cybersecurity Services</h2>
+      <p>
+        Cybersecurity assessments, penetration testing, vulnerability analysis, and related services are only performed with proper authorization, written scope, and client approval.
+      </p>
+      <p>
+        CyBrain does not authorize or support illegal hacking, unauthorized access, misuse of systems, or any activity outside the agreed legal scope.
+      </p>
+
+      <h2>6. AI and Software Services</h2>
+      <p>
+        AI and software solutions may depend on third-party platforms, APIs, hosting providers, models, datasets, integrations, and client-provided information. Results, performance, and timelines may vary depending on technical complexity, data quality, scope, and external dependencies.
+      </p>
+
+      <h2>7. Payments, Pricing, and Timelines</h2>
+      <p>
+        Prices, estimates, and timelines are not fixed unless confirmed in a written agreement. Project cost and delivery time depend on scope, features, complexity, design requirements, integrations, security needs, and client feedback cycles.
+      </p>
+
+      <h2>8. Rewards Program</h2>
+      <p>
+        CyBrain may offer a Rewards Program for individuals or partners who refer qualified project opportunities. Any commission, reward percentage, payment timing, and eligibility requirements must be confirmed by CyBrain in writing.
+      </p>
+      <p>
+        A referral does not automatically guarantee payment. Rewards may depend on project value, signed contract, client eligibility, and whether the opportunity was already known to CyBrain.
+      </p>
+
+      <h2>9. Intellectual Property</h2>
+      <p>
+        All website content, branding, text, design, graphics, logos, code, and visual elements are owned by CyBrain or used with permission unless otherwise stated.
+      </p>
+      <p>
+        Client project ownership, source code rights, licensing, deliverables, and usage rights will be defined in the applicable written agreement.
+      </p>
+
+      <h2>10. Third-Party Links</h2>
+      <p>
+        Our website may contain links to third-party services such as WhatsApp, Trustpilot, booking platforms, social media, project links, or external tools. We are not responsible for the content, policies, security, or practices of third-party websites.
+      </p>
+
+      <h2>11. No Guarantee of Results</h2>
+      <p>
+        We aim to provide high-quality services, but we do not guarantee specific business outcomes, revenue, rankings, traffic, search engine placement, security perfection, or uninterrupted system performance unless explicitly agreed in writing.
+      </p>
+
+      <h2>12. Limitation of Liability</h2>
+      <p>
+        To the maximum extent permitted by applicable law, CyBrain is not liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the website or reliance on website information.
+      </p>
+
+      <h2>13. Privacy</h2>
+      <p>
+        Your use of this website is also governed by our Privacy Policy, which explains how we collect, use, and protect information.
+      </p>
+
+      <h2>14. Changes to These Terms</h2>
+      <p>
+        We may update these Terms from time to time. The updated version will be posted on this page with a revised “Last updated” date.
+      </p>
+
+      <h2>15. Contact Us</h2>
+      <p>
+        For questions about these Terms, contact us at:
+        <br>
+        <a href="mailto:mohammad@cybrain.me">mohammad@cybrain.me</a>
+      </p>
+
+      <div class="actions">
+        <a href="/" class="btn-primary">Back to Home</a>
+        <a href="privacy-policy.html" class="btn-outline">Privacy Policy</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    © 2026 CyBrain LLC. All rights reserved.
+  </footer>
+</body>
+</html>

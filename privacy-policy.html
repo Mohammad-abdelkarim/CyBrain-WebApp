@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Privacy Policy | CyBrain</title>
+  <meta name="description" content="Read CyBrain's Privacy Policy to understand how we collect, use, protect, and handle personal information.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cybrain.me/privacy-policy.html">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0d0134;
+      --blue: #0066ff;
+      --cyan: #00f0ff;
+      --white: #ffffff;
+      --grey: #a0aec0;
+      --border: rgba(0,240,255,0.18);
+      --card-bg: rgba(13,1,52,0.72);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Exo 2', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.75;
+    }
+
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        linear-gradient(rgba(0,102,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,102,255,.045) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .radial-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(0,102,255,.24), transparent 45%),
+        radial-gradient(circle at 90% 20%, rgba(0,240,255,.08), transparent 30%);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 86px;
+      padding: 0 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(13,1,52,.84);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 58px;
+      width: auto;
+      max-width: 240px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 14px rgba(0,240,255,.2));
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,.72);
+      text-decoration: none;
+      font-size: .9rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: color .2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--cyan);
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      padding: 150px 6vw 80px;
+    }
+
+    .page-header {
+      max-width: 920px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cyan);
+      font-size: .78rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: '';
+      width: 26px;
+      height: 1px;
+      background: var(--cyan);
+      opacity: .8;
+    }
+
+    h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .accent {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-header p {
+      color: rgba(255,255,255,.58);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .content-card {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 3rem;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(0,240,255,.08), transparent 35%),
+        linear-gradient(135deg, rgba(13,1,52,.84), rgba(0,102,255,.07));
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 80px rgba(0,0,0,.22);
+    }
+
+    .last-updated {
+      padding: .8rem 1rem;
+      border: 1px solid rgba(0,240,255,.18);
+      border-radius: 12px;
+      background: rgba(0,240,255,.055);
+      color: rgba(255,255,255,.68);
+      margin-bottom: 2rem;
+      font-size: .9rem;
+    }
+
+    h2 {
+      font-family: 'Rajdhani', sans-serif;
+      color: var(--white);
+      font-size: 1.65rem;
+      margin: 2rem 0 .7rem;
+    }
+
+    p, li {
+      color: rgba(255,255,255,.62);
+      font-size: .96rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-top: .6rem;
+    }
+
+    li {
+      margin-bottom: .45rem;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2.4rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 28px;
+      border-radius: 6px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: var(--navy);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.26);
+      color: var(--white);
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 30px 6vw;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: rgba(255,255,255,.35);
+      font-size: .85rem;
+    }
+
+    @media(max-width: 540px) {
+      nav {
+        height: 78px;
+      }
+
+      .nav-logo img {
+        height: 50px;
+      }
+
+      main {
+        padding: 125px 5vw 60px;
+      }
+
+      .content-card {
+        padding: 2rem 1.2rem;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-bg"></div>
+  <div class="radial-glow"></div>
+
+  <nav>
+    <a class="nav-logo" href="/">
+      <img src="assets/cybrain-logo.png" alt="CyBrain logo">
+    </a>
+    <a class="nav-link" href="/">Back Home</a>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy <span class="accent">Policy</span></h1>
+      <p>
+        This Privacy Policy explains how CyBrain collects, uses, protects, and handles information when you visit our website or communicate with us.
+      </p>
+    </header>
+
+    <article class="content-card">
+      <div class="last-updated">
+        Last updated: April 30, 2026
+      </div>
+
+      <h2>1. Introduction</h2>
+      <p>
+        CyBrain LLC (“CyBrain,” “we,” “our,” or “us”) is a US-registered technology company providing software development, AI solutions, cybersecurity consulting, cloud infrastructure, and data analytics services.
+      </p>
+      <p>
+        By using our website, contacting us, submitting a form, booking a consultation, or communicating with us through email or WhatsApp, you agree to the practices described in this Privacy Policy.
+      </p>
+
+      <h2>2. Information We May Collect</h2>
+      <p>We may collect the following types of information:</p>
+      <ul>
+        <li>Contact information, such as your name, email address, phone number, company name, and message details.</li>
+        <li>Project information you voluntarily share with us, including requirements, business goals, budget expectations, and technical needs.</li>
+        <li>Communication information from emails, WhatsApp messages, consultation bookings, or other business conversations.</li>
+        <li>Technical information such as browser type, device information, approximate location, pages visited, and website usage data.</li>
+        <li>Review-related information if you choose to leave feedback through Trustpilot or another third-party platform.</li>
+      </ul>
+
+      <h2>3. How We Use Information</h2>
+      <p>We may use collected information to:</p>
+      <ul>
+        <li>Respond to inquiries and consultation requests.</li>
+        <li>Understand your project needs and prepare proposals, estimates, or technical scopes.</li>
+        <li>Provide software, AI, cybersecurity, cloud, and consulting services.</li>
+        <li>Improve our website, services, communication, and customer experience.</li>
+        <li>Maintain business records and comply with applicable legal, tax, or contractual obligations.</li>
+        <li>Protect our website, systems, clients, and business operations from misuse or security risks.</li>
+      </ul>
+
+      <h2>4. Cookies and Third-Party Tools</h2>
+      <p>
+        Our website may use third-party tools or external services, such as booking links, WhatsApp links, Trustpilot widgets, Google Fonts, analytics tools, hosting providers, or security-related tools. These services may collect limited technical or usage information according to their own privacy policies.
+      </p>
+      <p>
+        You can usually control cookies through your browser settings. Disabling cookies may affect some website features.
+      </p>
+
+      <h2>5. How We Share Information</h2>
+      <p>
+        We do not sell your personal information. We may share information only when necessary for business operations, such as:
+      </p>
+      <ul>
+        <li>With trusted service providers who help us operate the website, manage communication, host services, or deliver client work.</li>
+        <li>With professional advisors, legal, accounting, or compliance support when necessary.</li>
+        <li>When required by law, regulation, legal process, or to protect our rights, systems, clients, or users.</li>
+        <li>With your consent or when you intentionally use a third-party service such as Trustpilot, WhatsApp, or booking platforms.</li>
+      </ul>
+
+      <h2>6. Data Security</h2>
+      <p>
+        We take reasonable technical and organizational measures to protect information from unauthorized access, misuse, loss, or disclosure. However, no online transmission or storage system can be guaranteed to be completely secure.
+      </p>
+
+      <h2>7. Data Retention</h2>
+      <p>
+        We keep personal and business information only as long as reasonably necessary for the purposes described in this Privacy Policy, including communication, project delivery, business records, legal obligations, dispute resolution, and security purposes.
+      </p>
+
+      <h2>8. Your Rights and Choices</h2>
+      <p>
+        Depending on your location, you may have rights to access, correct, delete, restrict, or object to certain uses of your personal information. You may also request that we update or remove information you previously provided, subject to legal, contractual, or legitimate business requirements.
+      </p>
+
+      <h2>9. International Users</h2>
+      <p>
+        CyBrain LLC is registered in Wyoming, United States, and may work with clients internationally. If you contact us from outside the United States, your information may be processed in the United States or other countries where our service providers operate.
+      </p>
+
+      <h2>10. Children’s Privacy</h2>
+      <p>
+        Our services are intended for businesses and professional users. We do not knowingly collect personal information from children. If you believe a child has provided personal information to us, please contact us so we can review and remove it when appropriate.
+      </p>
+
+      <h2>11. Changes to This Privacy Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. The updated version will be posted on this page with a revised “Last updated” date.
+      </p>
+
+      <h2>12. Contact Us</h2>
+      <p>
+        If you have questions about this Privacy Policy or how we handle information, contact us at:
+        <br>
+        <a href="mailto:mohammad@cybrain.me">mohammad@cybrain.me</a>
+      </p>
+
+      <div class="actions">
+        <a href="/" class="btn-primary">Back to Home</a>
+        <a href="terms-conditions.html" class="btn-outline">Terms & Conditions</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    © 2026 CyBrain LLC. All rights reserved.
+  </footer>
+</body>
+</html>

@@ -1350,6 +1350,66 @@ footer {
   filter: brightness(1.08);
 }
 
+/* Typing Indicator */
+.typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: auto;
+  min-width: unset;
+  max-width: fit-content;
+  padding: 12px 14px;
+}
+
+.typing-indicator span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(0,240,255,.65);
+  animation: typingDot 1.2s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: .18s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: .36s;
+}
+
+@keyframes typingDot {
+  0%, 80%, 100% {
+    transform: translateY(0);
+    opacity: .35;
+  }
+
+  40% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+/* Bot answer entrance animation */
+.bot-message.answer-enter {
+  animation: botAnswerEnter .35s ease both;
+}
+
+@keyframes botAnswerEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(.98);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 /* Mobile */
 @media(max-width: 540px) {
   .chatbot-widget {
@@ -2616,18 +2676,40 @@ footer {
   });
 
   function addMessage(text, sender, isHTML = false) {
-    const message = document.createElement('div');
-    message.className = sender === 'user' ? 'user-message' : 'bot-message';
+  const message = document.createElement('div');
+  message.className = sender === 'user' ? 'user-message' : 'bot-message answer-enter';
 
-    if (isHTML) {
-      message.innerHTML = text;
-    } else {
-      message.textContent = text;
-    }
-
-    chatbotMessages.appendChild(message);
-    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  if (isHTML) {
+    message.innerHTML = text;
+  } else {
+    message.textContent = text;
   }
+
+  chatbotMessages.appendChild(message);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+function showTypingIndicator() {
+  const typing = document.createElement('div');
+  typing.className = 'bot-message typing-indicator';
+  typing.id = 'typingIndicator';
+
+  typing.innerHTML = `
+    <span></span>
+    <span></span>
+    <span></span>
+  `;
+
+  chatbotMessages.appendChild(typing);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+function removeTypingIndicator() {
+  const typing = document.getElementById('typingIndicator');
+  if (typing) {
+    typing.remove();
+  }
+}
 
   function formatReply(title, description, points = [], cta = '') {
     let html = `
@@ -3000,17 +3082,24 @@ footer {
   }
 
   function sendQuestion(question) {
-    const cleanQuestion = question.trim();
-    if (!cleanQuestion) return;
+  const cleanQuestion = question.trim();
+  if (!cleanQuestion) return;
 
-    addMessage(cleanQuestion, 'user');
-    chatbotInput.value = '';
+  addMessage(cleanQuestion, 'user');
+  chatbotInput.value = '';
 
-    setTimeout(() => {
-      const reply = getBotReply(cleanQuestion);
-      addMessage(reply, 'bot', true);
-    }, 450);
-  }
+  showTypingIndicator();
+
+  const typingDelay = 2200 + Math.random() * 800; 
+  // Between 2.2 and 3 seconds
+
+  setTimeout(() => {
+    removeTypingIndicator();
+
+    const reply = getBotReply(cleanQuestion);
+    addMessage(reply, 'bot', true);
+  }, typingDelay);
+}
 
   chatbotForm.addEventListener('submit', function(e) {
     e.preventDefault();

@@ -978,6 +978,419 @@ footer {
   }
 }
 
+/* ─── CYBRAIN CHATBOT ─── */
+.chatbot-widget {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 999999;
+  font-family: 'Exo 2', sans-serif;
+}
+
+/* Floating Button */
+.chatbot-toggle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,240,255,.45);
+
+  background:
+    linear-gradient(135deg, rgba(0,102,255,.26), rgba(0,240,255,.18)),
+    rgba(13,1,52,.35);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  color: var(--navy);
+  cursor: pointer;
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,.08),
+    0 0 22px rgba(0,102,255,.16),
+    0 0 60px rgba(0,240,255,.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .25s ease, box-shadow .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.chatbot-toggle::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,240,255,.35);
+  animation: chatbotPulse 2.4s ease-in-out infinite;
+}
+
+.chatbot-toggle::after {
+  content: '';
+  position: absolute;
+  width: 45%;
+  height: 120%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+  transform: rotate(25deg);
+  left: -70%;
+  animation: chatbotShine 4s ease-in-out infinite;
+}
+
+.chatbot-toggle:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 0 30px rgba(0,240,255,.5),
+    0 0 90px rgba(0,102,255,.38);
+}
+
+.chatbot-toggle img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 10px rgba(0,240,255,.55));
+}
+
+.bot-reply-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: .35rem;
+}
+
+.bot-reply-text {
+  color: rgba(255,255,255,.72);
+  line-height: 1.6;
+}
+
+.bot-reply-list {
+  margin: .7rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.bot-reply-list li {
+  margin-bottom: .35rem;
+  color: rgba(255,255,255,.62);
+  line-height: 1.45;
+}
+
+.bot-reply-list li::marker {
+  color: var(--cyan);
+}
+
+.bot-reply-cta {
+  margin-top: .75rem;
+  padding: .65rem .75rem;
+  border: 1px solid rgba(0,240,255,.16);
+  border-radius: 10px;
+  background: rgba(0,240,255,.06);
+  color: var(--cyan);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+@keyframes chatbotPulse {
+  0%, 100% {
+    transform: scale(.95);
+    opacity: .75;
+  }
+  50% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+}
+
+@keyframes chatbotShine {
+  0%, 55% {
+    left: -70%;
+  }
+  75%, 100% {
+    left: 130%;
+  }
+}
+
+/* Chat Window */
+.chatbot-box {
+  position: absolute;
+  right: 0;
+  bottom: 86px;
+  width: 390px;
+  max-width: calc(100vw - 32px);
+  border-radius: 22px;
+  background:
+    linear-gradient(rgba(13,1,52,.92), rgba(13,1,52,.92)) padding-box,
+    linear-gradient(135deg, rgba(0,102,255,.65), rgba(0,240,255,.45), rgba(255,255,255,.08)) border-box;
+  border: 1px solid transparent;
+  backdrop-filter: blur(22px);
+  box-shadow:
+    0 24px 90px rgba(0,0,0,.45),
+    0 0 70px rgba(0,102,255,.18);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(.96);
+  transition: opacity .28s ease, transform .28s ease;
+}
+
+.chatbot-box.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.chatbot-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 85% 5%, rgba(0,240,255,.16), transparent 34%),
+    radial-gradient(circle at 10% 90%, rgba(0,102,255,.18), transparent 36%),
+    linear-gradient(rgba(0,102,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,102,255,.035) 1px, transparent 1px);
+  background-size: auto, auto, 44px 44px, 44px 44px;
+  pointer-events: none;
+}
+
+.chatbot-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(0,240,255,.06) 45%, transparent 75%);
+  opacity: .6;
+  pointer-events: none;
+}
+
+/* Header */
+.chatbot-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.05rem 1.15rem;
+  border-bottom: 1px solid rgba(0,240,255,.16);
+  background:
+    linear-gradient(135deg, rgba(0,102,255,.22), rgba(0,240,255,.08)),
+    rgba(255,255,255,.03);
+}
+
+.chatbot-header::before {
+  content: '';
+  position: absolute;
+  left: 1.15rem;
+  bottom: -1px;
+  width: 110px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cyan), transparent);
+}
+
+.chatbot-header h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.25rem;
+  margin: 0;
+  letter-spacing: .03em;
+  color: var(--white);
+}
+
+.chatbot-header p {
+  margin: .18rem 0 0;
+  font-size: .78rem;
+  color: rgba(255,255,255,.52);
+}
+
+.chatbot-header button {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(0,240,255,.08);
+  border: 1px solid rgba(0,240,255,.18);
+  color: var(--cyan);
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.chatbot-header button:hover {
+  background: rgba(0,240,255,.16);
+  transform: rotate(90deg);
+}
+
+/* Messages */
+.chatbot-messages {
+  position: relative;
+  z-index: 2;
+  height: 300px;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,240,255,.5) rgba(255,255,255,.06);
+}
+
+.chatbot-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+  background: rgba(0,240,255,.4);
+  border-radius: 999px;
+}
+
+.bot-message,
+.user-message {
+  max-width: 86%;
+  padding: .85rem .95rem;
+  border-radius: 16px;
+  font-size: .88rem;
+  line-height: 1.6;
+  position: relative;
+  animation: messageIn .25s ease both;
+}
+
+@keyframes messageIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bot-message {
+  align-self: flex-start;
+  color: rgba(255,255,255,.78);
+  background:
+    linear-gradient(135deg, rgba(0,240,255,.09), rgba(0,102,255,.08));
+  border: 1px solid rgba(0,240,255,.18);
+  box-shadow: inset 0 0 18px rgba(0,240,255,.035);
+}
+
+.user-message {
+  align-self: flex-end;
+  color: var(--navy);
+  font-weight: 700;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.38), transparent 28%),
+    linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 8px 24px rgba(0,102,255,.22);
+}
+
+/* Suggestions */
+.chatbot-suggestions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: .55rem;
+  flex-wrap: wrap;
+  padding: 0 1rem 1rem;
+}
+
+.chatbot-suggestions button {
+  border: 1px solid rgba(0,240,255,.24);
+  background:
+    linear-gradient(135deg, rgba(0,102,255,.12), rgba(0,240,255,.06));
+  color: var(--cyan);
+  border-radius: 999px;
+  padding: .5rem .78rem;
+  font-size: .75rem;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.chatbot-suggestions button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0,240,255,.5);
+  background: rgba(0,240,255,.12);
+}
+
+/* Input */
+.chatbot-input {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  border-top: 1px solid rgba(0,240,255,.16);
+  background: rgba(255,255,255,.035);
+}
+
+.chatbot-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  background: rgba(255,255,255,.035);
+  color: var(--white);
+  font-family: 'Exo 2', sans-serif;
+}
+
+.chatbot-input input::placeholder {
+  color: rgba(255,255,255,.36);
+}
+
+.chatbot-input button {
+  border: none;
+  min-width: 82px;
+  padding: 0 1rem;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255,255,255,.3), transparent 28%),
+    linear-gradient(135deg, var(--blue), var(--cyan));
+  color: var(--navy);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: filter .2s ease, transform .2s ease;
+}
+
+.chatbot-input button:hover {
+  filter: brightness(1.08);
+}
+
+/* Mobile */
+@media(max-width: 540px) {
+  .chatbot-widget {
+    position: fixed !important;
+    right: 18px !important;
+    bottom: 18px !important;
+    z-index: 999999 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .chatbot-toggle {
+    width: 62px;
+    height: 62px;
+    display: flex !important;
+  }
+
+  .chatbot-toggle img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .chatbot-box {
+    position: absolute;
+    right: 0;
+    bottom: 78px;
+    width: calc(100vw - 36px);
+    max-width: calc(100vw - 36px);
+    border-radius: 20px;
+  }
+
+  .chatbot-messages {
+    height: 285px;
+  }
+}
+
   /* ─── SCROLL REVEAL ─── */
   .reveal {
     opacity: 0; transform: translateY(30px);
@@ -2139,6 +2552,466 @@ footer {
     animateParticles();
     window.addEventListener('resize', resizeCanvas, { passive: true });
   }
+</script>
+
+<!-- CYBRAIN AI CHATBOT -->
+<div class="chatbot-widget">
+  <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open CyBrain Assistant">
+    <img src="assets/chatbot-icon.png" alt="CyBrain Assistant">
+  </button>
+
+  <div class="chatbot-box" id="chatbotBox">
+    <div class="chatbot-header">
+      <div>
+        <h4>CyBrain Assistant</h4>
+        <p>Ask about our company</p>
+      </div>
+      <button id="chatbotClose" aria-label="Close chatbot">×</button>
+    </div>
+
+    <div class="chatbot-messages" id="chatbotMessages">
+      <div class="bot-message">
+        Hello! I’m CyBrain Assistant. Ask me about our services, projects, location, rewards program, or contact details.
+      </div>
+    </div>
+
+    <div class="chatbot-suggestions">
+      <button data-question="What services do you offer?">Services</button>
+      <button data-question="How much does a project cost?">Pricing</button>
+      <button data-question="Tell me about the rewards program">Rewards</button>
+    </div>
+
+    <form class="chatbot-input" id="chatbotForm">
+      <input type="text" id="chatbotInput" placeholder="Type your question..." autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const chatbotToggle = document.getElementById('chatbotToggle');
+  const chatbotBox = document.getElementById('chatbotBox');
+  const chatbotClose = document.getElementById('chatbotClose');
+  const chatbotForm = document.getElementById('chatbotForm');
+  const chatbotInput = document.getElementById('chatbotInput');
+  const chatbotMessages = document.getElementById('chatbotMessages');
+  const suggestionButtons = document.querySelectorAll('.chatbot-suggestions button');
+
+  chatbotToggle.addEventListener('click', () => {
+    chatbotBox.classList.toggle('active');
+  });
+
+  chatbotClose.addEventListener('click', () => {
+    chatbotBox.classList.remove('active');
+  });
+
+  function addMessage(text, sender, isHTML = false) {
+    const message = document.createElement('div');
+    message.className = sender === 'user' ? 'user-message' : 'bot-message';
+
+    if (isHTML) {
+      message.innerHTML = text;
+    } else {
+      message.textContent = text;
+    }
+
+    chatbotMessages.appendChild(message);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function formatReply(title, description, points = [], cta = '') {
+    let html = `
+      <div class="bot-reply-title">${title}</div>
+      <div class="bot-reply-text">${description}</div>
+    `;
+
+    if (points.length > 0) {
+      html += `<ul class="bot-reply-list">`;
+      points.forEach(point => {
+        html += `<li>${point}</li>`;
+      });
+      html += `</ul>`;
+    }
+
+    if (cta) {
+      html += `<div class="bot-reply-cta">${cta}</div>`;
+    }
+
+    return html;
+  }
+
+  function normalizeText(text) {
+    return text
+      .toLowerCase()
+      .replace(/[^\w\s]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  const knowledgeBase = [
+    {
+      keywords: ['hello', 'hi', 'hey', 'salam', 'good morning', 'good evening'],
+      reply: formatReply(
+        'Hello, welcome to CyBrain.',
+        'I can help you understand our services, projects, pricing approach, company location, rewards program, and contact options.',
+        [
+          'Ask about software development',
+          'Ask about AI solutions',
+          'Ask about cybersecurity',
+          'Ask about project pricing or timeline'
+        ]
+      )
+    },
+    {
+      keywords: ['what is cybrain', 'who are you', 'about cybrain', 'company', 'cybrain'],
+      reply: formatReply(
+        'CyBrain is a technology company.',
+        'CyBrain is a US-registered technology company providing software development, AI solutions, cybersecurity, cloud infrastructure, and data analytics services for businesses.',
+        [
+          'Software development for businesses',
+          'AI automation and intelligent systems',
+          'Cybersecurity consulting and penetration testing',
+          'Cloud infrastructure and data solutions'
+        ],
+        'Our mission is to help businesses build secure, intelligent, and scalable digital systems.'
+      )
+    },
+    {
+      keywords: ['service', 'services', 'offer', 'what do you do', 'solutions'],
+      reply: formatReply(
+        'CyBrain services include:',
+        'We help businesses design, build, secure, and scale modern digital systems.',
+        [
+          'Software Development: websites, dashboards, SaaS platforms, internal systems',
+          'AI Solutions: automation, assistants, smart recommendations, AI workflows',
+          'Cybersecurity: penetration testing, security consulting, risk assessment',
+          'Cloud & Infrastructure: deployment, hosting, SSL, domain setup, scalable systems',
+          'Data & Analytics: dashboards, reporting, business intelligence'
+        ],
+        'You can explore the Services section or contact us to discuss your project.'
+      )
+    },
+    {
+      keywords: ['software', 'website', 'web app', 'application', 'platform', 'dashboard', 'system', 'saas'],
+      reply: formatReply(
+        'Software development at CyBrain.',
+        'CyBrain builds custom digital products for businesses that need reliable, scalable, and secure software.',
+        [
+          'Business websites and landing pages',
+          'Web applications and SaaS platforms',
+          'Admin panels and dashboards',
+          'Internal management systems',
+          'APIs and backend systems'
+        ],
+        'Tell us your idea, and we can help turn it into a clear technical scope.'
+      )
+    },
+    {
+      keywords: ['ai', 'artificial intelligence', 'automation', 'chatbot', 'assistant', 'machine learning', 'llm'],
+      reply: formatReply(
+        'AI solutions at CyBrain.',
+        'We build AI-powered systems that help companies automate tasks, improve decisions, and create smarter customer or internal experiences.',
+        [
+          'AI assistants and chatbots',
+          'Workflow automation',
+          'Recommendation systems',
+          'AI-powered dashboards',
+          'LLM integrations for business tools'
+        ],
+        'AI is best when connected to a real business problem, not just added as a feature.'
+      )
+    },
+    {
+      keywords: ['cybersecurity', 'cyber security', 'security', 'pentest', 'penetration testing', 'vulnerability', 'risk'],
+      reply: formatReply(
+        'Cybersecurity services.',
+        'CyBrain helps businesses identify security weaknesses and improve their protection before attackers can exploit them.',
+        [
+          'Web application penetration testing',
+          'Vulnerability assessment',
+          'Security consulting',
+          'Risk analysis and reporting',
+          'Security recommendations and remediation guidance'
+        ],
+        'For any security test, authorization and clear scope are required before starting.'
+      )
+    },
+    {
+      keywords: ['cloud', 'hosting', 'server', 'deployment', 'digitalocean', 'aws', 'azure', 'gcp', 'ssl', 'domain'],
+      reply: formatReply(
+        'Cloud and infrastructure support.',
+        'CyBrain helps businesses deploy, configure, and maintain secure cloud environments.',
+        [
+          'Website and app deployment',
+          'Domain and DNS configuration',
+          'SSL/HTTPS setup',
+          'Cloud hosting setup',
+          'Backup and scalability planning'
+        ],
+        'We focus on stable, secure, and business-ready deployment.'
+      )
+    },
+    {
+      keywords: ['data', 'analytics', 'dashboard', 'reporting', 'business intelligence', 'bi'],
+      reply: formatReply(
+        'Data and analytics solutions.',
+        'CyBrain builds dashboards and reporting systems that help businesses understand their performance and make better decisions.',
+        [
+          'Business dashboards',
+          'Real-time reports',
+          'Data visualization',
+          'Data pipelines',
+          'Business intelligence tools'
+        ]
+      )
+    },
+    {
+      keywords: ['project', 'projects', 'portfolio', 'previous work', 'case study', 'work'],
+      reply: formatReply(
+        'Featured projects.',
+        'You can view selected projects in the Projects section of the website. Some projects may not be publicly listed because of client privacy or confidentiality agreements.',
+        [
+          'GoSportz',
+          'SETTRR',
+          'AI-powered assistant concepts',
+          'Corporate websites and business systems',
+          'Private client systems under NDA'
+        ],
+        'For more details, contact us and we can share what is publicly available.'
+      )
+    },
+    {
+      keywords: ['gosportz'],
+      reply: formatReply(
+        'GoSportz project.',
+        'GoSportz is a sports technology platform built to support digital interaction between players, coaches, clubs, and parents.',
+        [
+          'Web platform',
+          'Mobile app experience',
+          'Admin panel',
+          'Sports matchmaking and management features'
+        ]
+      )
+    },
+    {
+      keywords: ['settrr'],
+      reply: formatReply(
+        'SETTRR project.',
+        'SETTRR is an AI software platform focused on smarter workflows, automation, and intelligent digital operations.',
+        [
+          'AI-powered features',
+          'SaaS-style platform',
+          'Automation workflows',
+          'Business-focused user experience'
+        ]
+      )
+    },
+    {
+      keywords: ['price', 'pricing', 'cost', 'quote', 'budget', 'how much'],
+      reply: formatReply(
+        'Project pricing.',
+        'Project cost depends on the scope, features, timeline, design complexity, integrations, and security requirements.',
+        [
+          'Small websites usually cost less than full platforms',
+          'AI and cybersecurity features increase complexity',
+          'Mobile apps usually require a larger budget',
+          'A clear scope is needed before giving an accurate quote'
+        ],
+        'Contact us with your idea, and we can prepare a custom estimate.'
+      )
+    },
+    {
+      keywords: ['timeline', 'how long', 'duration', 'time', 'delivery', 'deadline'],
+      reply: formatReply(
+        'Project timeline.',
+        'The timeline depends on the size and complexity of the project.',
+        [
+          'Simple website: usually faster',
+          'Business platform: requires planning, design, development, testing',
+          'AI or cybersecurity systems: may need deeper technical work',
+          'Large projects may be delivered in phases'
+        ],
+        'CyBrain prefers realistic timelines to protect quality and reliability.'
+      )
+    },
+    {
+      keywords: ['location', 'where are you', 'country', 'wyoming', 'united states', 'usa', 'us registered'],
+      reply: formatReply(
+        'Company location.',
+        'CyBrain LLC is registered in Wyoming, United States, and works with clients internationally.',
+        [
+          'Registered in the United States',
+          'Business location: Wyoming',
+          'Remote-friendly and international collaboration'
+        ]
+      )
+    },
+    {
+      keywords: ['contact', 'email', 'whatsapp', 'phone', 'reach you', 'talk'],
+      reply: formatReply(
+        'Contact CyBrain.',
+        'You can contact CyBrain through the website contact button, WhatsApp, or email.',
+        [
+          'Email: mohammad@cybrain.me',
+          'Use the Start a Conversation button for WhatsApp',
+          'You can ask for a consultation, quote, or project discussion'
+        ],
+        'We recommend sending a short description of your project to get a faster response.'
+      )
+    },
+    {
+      keywords: ['reward', 'rewards', 'commission', 'partner', 'referral', 'refer'],
+      reply: formatReply(
+        'CyBrain Rewards Program.',
+        'Anyone who brings a qualified project opportunity to CyBrain can earn a commission when the client signs the contract.',
+        [
+          'Commission range: 2% to 5%',
+          'The percentage depends on project size and value',
+          'Reward is paid after contract signing',
+          'CyBrain handles the meeting, proposal, and technical scope'
+        ],
+        'This is ideal for marketers, consultants, freelancers, and business connectors.'
+      )
+    },
+    {
+      keywords: ['trustpilot', 'review', 'feedback', 'rating'],
+      reply: formatReply(
+        'Client feedback.',
+        'CyBrain uses Trustpilot so clients can share honest feedback about their experience.',
+        [
+          'You can leave a review through the Trustpilot section',
+          'Feedback helps future clients build trust',
+          'Reviews support transparency and credibility'
+        ]
+      )
+    },
+    {
+      keywords: ['confidential', 'nda', 'private', 'privacy'],
+      reply: formatReply(
+        'Confidential projects.',
+        'Some CyBrain projects cannot be publicly disclosed because of privacy, security, or NDA requirements.',
+        [
+          'Private client systems may not appear in the portfolio',
+          'Sensitive cybersecurity work is handled carefully',
+          'Client confidentiality is respected'
+        ]
+      )
+    },
+    {
+      keywords: ['process', 'how do you work', 'steps', 'methodology'],
+      reply: formatReply(
+        'How CyBrain works.',
+        'CyBrain follows a structured process to reduce risk and deliver better results.',
+        [
+          'Discover: understand your goals and requirements',
+          'Architect: design the right technical solution',
+          'Build & Secure: develop with quality and security in mind',
+          'Evolve: improve, maintain, and scale after launch'
+        ]
+      )
+    },
+    {
+      keywords: ['industry', 'industries', 'sector', 'business type'],
+      reply: formatReply(
+        'Industries we serve.',
+        'CyBrain can support multiple industries that need secure and intelligent digital systems.',
+        [
+          'Finance and business services',
+          'Healthcare and MedTech',
+          'Government and public sector',
+          'Retail and e-commerce',
+          'Education and training',
+          'NGOs and nonprofit organizations'
+        ]
+      )
+    },
+    {
+      keywords: ['maintenance', 'support', 'after launch', 'update', 'fix'],
+      reply: formatReply(
+        'Support and maintenance.',
+        'CyBrain can support projects after launch through updates, fixes, monitoring, improvements, and new feature development.',
+        [
+          'Bug fixing',
+          'Feature updates',
+          'Security improvements',
+          'Performance optimization',
+          'Technical support'
+        ]
+      )
+    }
+  ];
+
+  function getBotReply(question) {
+    const q = normalizeText(question);
+
+    let bestMatch = null;
+    let bestScore = 0;
+
+    knowledgeBase.forEach(item => {
+      let score = 0;
+
+      item.keywords.forEach(keyword => {
+        const normalizedKeyword = normalizeText(keyword);
+
+        if (q === normalizedKeyword) {
+          score += 5;
+        } else if (q.includes(normalizedKeyword)) {
+          score += 3;
+        } else {
+          const keywordWords = normalizedKeyword.split(' ');
+          keywordWords.forEach(word => {
+            if (word.length > 3 && q.includes(word)) {
+              score += 1;
+            }
+          });
+        }
+      });
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestMatch = item;
+      }
+    });
+
+    if (bestMatch && bestScore > 0) {
+      return bestMatch.reply;
+    }
+
+    return formatReply(
+      'I can help with CyBrain information.',
+      'I may not have understood the exact question, but I can answer questions about the company, services, projects, pricing, cybersecurity, AI, rewards program, location, and contact details.',
+      [
+        'Try asking: What services do you offer?',
+        'Try asking: How much does a project cost?',
+        'Try asking: Do you provide cybersecurity?',
+        'Try asking: Where is CyBrain located?'
+      ]
+    );
+  }
+
+  function sendQuestion(question) {
+    const cleanQuestion = question.trim();
+    if (!cleanQuestion) return;
+
+    addMessage(cleanQuestion, 'user');
+    chatbotInput.value = '';
+
+    setTimeout(() => {
+      const reply = getBotReply(cleanQuestion);
+      addMessage(reply, 'bot', true);
+    }, 450);
+  }
+
+  chatbotForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    sendQuestion(chatbotInput.value);
+  });
+
+  suggestionButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      sendQuestion(button.dataset.question);
+    });
+  });
 </script>
 </body>
 </html>

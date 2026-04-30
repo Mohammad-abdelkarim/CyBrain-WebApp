@@ -2711,6 +2711,36 @@ function removeTypingIndicator() {
   }
 }
 
+function typeBotMessage(htmlText, speed = 28) {
+  const message = document.createElement('div');
+  message.className = 'bot-message answer-enter';
+
+  chatbotMessages.appendChild(message);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+  const temp = document.createElement('div');
+  temp.innerHTML = htmlText;
+
+  const plainText = temp.innerText;
+  const words = plainText.split(' ');
+
+  let index = 0;
+
+  const typing = setInterval(() => {
+    if (index < words.length) {
+      message.textContent += (index === 0 ? '' : ' ') + words[index];
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      index++;
+    } else {
+      clearInterval(typing);
+
+      // Replace plain typed text with the final formatted HTML answer
+      message.innerHTML = htmlText;
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+  }, speed);
+}
+
   function formatReply(title, description, points = [], cta = '') {
     let html = `
       <div class="bot-reply-title">${title}</div>
@@ -3097,7 +3127,7 @@ function removeTypingIndicator() {
     removeTypingIndicator();
 
     const reply = getBotReply(cleanQuestion);
-    addMessage(reply, 'bot', true);
+    typeBotMessage(reply, 35);
   }, typingDelay);
 }
 

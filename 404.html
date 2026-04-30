@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Page Not Found | CyBrain</title>
+  <meta name="description" content="The page you are looking for could not be found. Return to CyBrain home page.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0d0134;
+      --blue: #0066ff;
+      --cyan: #00f0ff;
+      --white: #ffffff;
+      --grey: #a0aec0;
+      --border: rgba(0,240,255,0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Exo 2', sans-serif;
+      overflow: hidden;
+    }
+
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(0,102,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,102,255,.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: moveGrid 18s linear infinite;
+    }
+
+    .glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(0,240,255,.18), transparent 35%),
+        radial-gradient(circle at 20% 80%, rgba(0,102,255,.16), transparent 35%);
+    }
+
+    @keyframes moveGrid {
+      from { background-position: 0 0, 0 0; }
+      to { background-position: 60px 60px, 60px 60px; }
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 6vw;
+      text-align: center;
+    }
+
+    .card {
+      width: min(760px, 100%);
+      padding: 4rem 2.5rem;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(13,1,52,.82), rgba(0,102,255,.08));
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 80px rgba(0,0,0,.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(0,240,255,.18), transparent 38%);
+      pointer-events: none;
+    }
+
+    .logo {
+      position: relative;
+      z-index: 1;
+      height: 72px;
+      width: auto;
+      max-width: 260px;
+      object-fit: contain;
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 0 14px rgba(0,240,255,.25));
+    }
+
+    .code {
+      position: relative;
+      z-index: 1;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(6rem, 18vw, 11rem);
+      font-weight: 700;
+      line-height: .85;
+      letter-spacing: .04em;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 50px rgba(0,240,255,.18);
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      position: relative;
+      z-index: 1;
+      max-width: 540px;
+      margin: 0 auto 2.2rem;
+      color: rgba(255,255,255,.6);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 30px;
+      border-radius: 6px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, color .25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: var(--navy);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.28);
+      color: var(--white);
+    }
+
+    .btn-primary:hover,
+    .btn-outline:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 12px 36px rgba(0,102,255,.4);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .orbit {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(0,240,255,.12);
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      animation: spin 18s linear infinite;
+      pointer-events: none;
+    }
+
+    .orbit::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 52%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 18px var(--cyan);
+    }
+
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @media(max-width: 540px) {
+      body {
+        overflow-y: auto;
+      }
+
+      .card {
+        padding: 3rem 1.4rem;
+      }
+
+      .logo {
+        height: 58px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-bg"></div>
+  <div class="glow"></div>
+
+  <main class="page">
+    <div class="card">
+      <div class="orbit"></div>
+
+      <img 
+        src="assets/cybrain-logo.png" 
+        alt="CyBrain logo" 
+        class="logo"
+        onerror="this.style.display='none'"
+      >
+
+      <div class="code">404</div>
+
+      <h1>Page Not Found</h1>
+
+      <p>
+        The page you are looking for may have been moved, removed, or never existed. 
+        Let’s get you back to CyBrain.
+      </p>
+
+      <div class="actions">
+        <a href="/" class="btn-primary">Back to Home</a>
+        <a href="/#cta-banner" class="btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

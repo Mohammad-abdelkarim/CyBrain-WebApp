@@ -983,6 +983,102 @@ footer {
   font-family: 'Exo 2', sans-serif;
 }
 
+.chatbot-mini-popup {
+  position: absolute;
+  right: 0;
+  bottom: 82px;
+  min-width: 210px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.18), transparent 30%),
+    linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.055)),
+    rgba(13,1,52,.52);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    inset 0 0 16px rgba(255,255,255,.08),
+    0 14px 40px rgba(0,0,0,.28),
+    0 0 28px rgba(0,240,255,.16);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  animation: miniPopupIn .45s ease both, miniPopupFloat 3s ease-in-out infinite;
+  z-index: 10000;
+}
+
+.chatbot-mini-popup::after {
+  content: '';
+  position: absolute;
+  right: 24px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background: rgba(13,1,52,.62);
+  border-right: 1px solid rgba(255,255,255,.18);
+  border-bottom: 1px solid rgba(255,255,255,.18);
+  transform: rotate(45deg);
+  backdrop-filter: blur(18px);
+}
+
+.chatbot-mini-popup span {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: .98rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
+
+.chatbot-mini-popup button {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,240,255,.18);
+  background: rgba(0,240,255,.07);
+  color: var(--cyan);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.chatbot-mini-popup button:hover {
+  transform: rotate(90deg);
+  background: rgba(0,240,255,.14);
+}
+
+.chatbot-mini-popup.hide {
+  opacity: 0;
+  transform: translateY(8px) scale(.96);
+  pointer-events: none;
+}
+
+@keyframes miniPopupIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes miniPopupFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -5px;
+  }
+}
+
 /* Floating Button */
 .chatbot-toggle {
   width: 68px;
@@ -1441,6 +1537,19 @@ footer {
     max-width: calc(100vw - 36px);
     border-radius: 20px;
   }
+
+  @media(max-width: 540px) {
+  .chatbot-mini-popup {
+    right: 0;
+    bottom: 76px;
+    min-width: 190px;
+    padding: 10px 12px;
+  }
+
+  .chatbot-mini-popup span {
+    font-size: .9rem;
+  }
+}
 
   .chatbot-messages {
     height: 285px;
@@ -2626,6 +2735,11 @@ footer {
 
 <!-- CYBRAIN AI CHATBOT -->
 <div class="chatbot-widget">
+  <div class="chatbot-mini-popup" id="chatbotMiniPopup">
+  <span>CyBrain AI Assistant</span>
+  <button type="button" id="chatbotMiniClose" aria-label="Close assistant popup">×</button>
+</div>
+
   <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open CyBrain Assistant">
     <img src="assets/chatbot-icon.png" alt="CyBrain Assistant">
   </button>
@@ -2666,6 +2780,25 @@ footer {
   const chatbotInput = document.getElementById('chatbotInput');
   const chatbotMessages = document.getElementById('chatbotMessages');
   const suggestionButtons = document.querySelectorAll('.chatbot-suggestions button');
+  const chatbotMiniPopup = document.getElementById('chatbotMiniPopup');
+  const chatbotMiniClose = document.getElementById('chatbotMiniClose');
+  
+  if (chatbotMiniClose && chatbotMiniPopup) {
+  chatbotMiniClose.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    chatbotMiniPopup.style.display = 'none';
+  });
+}
+
+  chatbotMiniClose.addEventListener('click', (e) => {
+  e.stopPropagation();
+  chatbotMiniPopup.classList.add('hide');
+});
+
+chatbotToggle.addEventListener('click', () => {
+  chatbotMiniPopup.classList.add('hide');
+});
 
   chatbotToggle.addEventListener('click', () => {
     chatbotBox.classList.toggle('active');

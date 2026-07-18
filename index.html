@@ -1077,10 +1077,8 @@ footer {
   opacity: 0;
   transform: translateY(8px) scale(.96);
   pointer-events: none;
-}
-
-@keyframes miniPopupIn {
-  from {
+  visibility: hidden;
+  display: none;
     opacity: 0;
     transform: translateY(12px) scale(.95);
   }
@@ -2840,6 +2838,7 @@ footer {
         e.preventDefault();
         e.stopPropagation();
         chatbotMiniPopup.classList.add('hide');
+        chatbotMiniPopup.style.display = 'none';
       });
     }
 

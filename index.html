@@ -2839,13 +2839,6 @@ footer {
       chatbotMiniClose.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        chatbotMiniPopup.style.display = 'none';
-      });
-    }
-
-    if (chatbotMiniClose) {
-      chatbotMiniClose.addEventListener('click', (e) => {
-        e.stopPropagation();
         chatbotMiniPopup.classList.add('hide');
       });
     }
@@ -2988,17 +2981,9 @@ footer {
     suggestionButtons.forEach(button => { button.addEventListener('click', () => sendQuestion(button.dataset.question)); });
   }
 
-  // Attach a one-time initializer to the toggle so chatbot loads only when user interacts
+  // Initialize chatbot event handlers once the DOM is ready.
   document.addEventListener('DOMContentLoaded', () => {
-    const t = document.getElementById('chatbotToggle');
-    if (!t) return;
-    const onFirst = () => {
-      initChatbot();
-      t.removeEventListener('click', onFirst);
-      // open the widget immediately after initialization
-      t.click();
-    };
-    t.addEventListener('click', onFirst, { once: true });
+    initChatbot();
   });
 </script>
 </body>

@@ -18,7 +18,5 @@
     "url": "https://github.com/Mohammad-abdelkarim/CyBrain-WebApp/issues"
   },
   "homepage": "https://github.com/Mohammad-abdelkarim/CyBrain-WebApp#readme",
-  "devDependencies": {
-    "sharp": "^0.35.3"
-  }
+  
 }

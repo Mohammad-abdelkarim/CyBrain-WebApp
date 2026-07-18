@@ -2981,10 +2981,13 @@ footer {
     suggestionButtons.forEach(button => { button.addEventListener('click', () => sendQuestion(button.dataset.question)); });
   }
 
-  // Initialize chatbot event handlers once the DOM is ready.
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize chatbot event handlers immediately if the DOM is ready,
+  // or wait for DOMContentLoaded if not.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initChatbot);
+  } else {
     initChatbot();
-  });
+  }
 </script>
 </body>
 </html>

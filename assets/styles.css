@@ -1,0 +1,148 @@
+:root {
+    --navy:   #0d0134;
+    --blue:   #0066ff;
+    --cyan:   #00f0ff;
+    --white:  #ffffff;
+    --grey:   #a0aec0;
+    --card-bg: rgba(13,1,52,0.55);
+    --border:  rgba(0,240,255,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ─── GRID CANVAS ─── */
+  .grid-bg {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      linear-gradient(rgba(0,102,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,102,255,.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .radial-glow {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,102,255,.22) 0%, transparent 70%);
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 6vw;
+    height: 72px;
+    background: rgba(13,1,52,.82);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 38px; height: 38px;
+    flex-shrink: 0;
+  }
+  .nav-logo-img {
+    height: 200px;
+    width: auto;
+    max-width: 250px;
+    object-fit: contain;
+    object-position: left center;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .nav-logo-text span { color: var(--cyan); }
+  .nav-links {
+    display: flex; gap: 2.4rem; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,.72);
+    text-decoration: none;
+    font-size: .9rem; font-weight: 400;
+    letter-spacing: .08em; text-transform: uppercase;
+    transition: color .25s;
+  }
+  .nav-links a:hover { color: var(--cyan); }
+  .nav-cta {
+    padding: 9px 24px;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    color: var(--navy) !important;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    transition: opacity .25s !important;
+  }
+  .nav-cta:hover { opacity: .85; color: var(--navy) !important; }
+
+  /* ─── HERO ─── */
+  #hero {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 6vw 80px;
+    overflow: hidden;
+  }
+  .hero-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    animation: pulse-ring 4s ease-in-out infinite;
+  }
+  .hero-ring:nth-child(1){ width:400px;height:400px;border-color:rgba(0,240,255,.18);animation-delay:0s; }
+  .hero-ring:nth-child(2){ width:620px;height:620px;border-color:rgba(0,102,255,.12);animation-delay:.8s; }
+  .hero-ring:nth-child(3){ width:860px;height:860px;border-color:rgba(0,240,255,.07);animation-delay:1.6s; }
+  .hero-ring:nth-child(4){ width:1100px;height:1100px;border-color:rgba(0,102,255,.04);animation-delay:2.4s; }
+  @keyframes pulse-ring {
+    0%,100%{ transform:scale(1); opacity:1; }
+    50%{ transform:scale(1.04); opacity:.5; }
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 18px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 2rem;
+    background: rgba(0,240,255,.06);
+    animation: fadeUp .8s ease both;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+    animation: blink 1.4s ease infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+  .hero-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(3rem, 8vw, 7.5rem);
+    font-weight: 700;
+    line-height: .95;
+    letter-spacing: -.01em;
+    animation: fadeUp .9s ease .1s both;
+  }
+  .hero-title .line-blue { color: var(--blue); }
+  .hero-title .line-cyan {
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    max-width: 540px;
+    margin: 1.8rem auto 0;
+    font-size: 1.05rem; color: rgba(255,255,255,.6);
+    line-height: 1.75;
+    animation: fadeUp 1s ease .2s both;
+  }
+  /* (rest of original CSS preserved) */
